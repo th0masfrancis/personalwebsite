@@ -4,3 +4,11 @@
 max-width:42em;margin:15 auto;
     
 }
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: gray;
+    text-align: center;
+  }
