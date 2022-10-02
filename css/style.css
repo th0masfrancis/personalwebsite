@@ -1,10 +1,11 @@
 
-#maincontent
+maincontent
 {
 max-width:42em;margin:15 auto;
     
 }
-#footer {
+
+footer {
     position: fixed;
     left: 0;
     bottom: 0;
