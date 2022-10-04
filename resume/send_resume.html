@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#btnSubmit').click(function(){
+    $('#btnSubmit').disabled = true;
+    var val = $('#emailAddress')[0].value;
+    $('#emailResponse').html('<img src="ajax-loader.gif" border="0" />').css('backgroundColor', 'ffffd0');
+    $.getJSON('notify.php',{email: val}, function(data){
+        if (!data.result) {
+            $('#emailResponse').html(data.message).css('backgroundColor','ff9999').effect('highlight', {color: '#ffff99'}, 1000);
+        } else {
+            $('#emailResponse').html(data.message).css('backgroundColor','99ff99').effect('highlight', {color: '#ffff99'}, 1000);
+        }
+        });
+            $('#btnSubmit').disabled = false;
+            return false;
+    });
+$('#emailAddress').keyup(function(e) {
+    if(e.keyCode == 13) {
+        $('#btnSubmit').click();
+    }
+    return false;
+});
+});
+
+</script>
+
+</head>
+<body>
+    <div style="margin:0 auto;background:#ffffd0;width:500px;padding:10px;text-align:center; font-family:Verdana,Arial,sans-serif; border:1px solid black;">
+    If you would like to be notified when we launch, please leave your email address here.<br /><br />
+    <input type="text" id="emailAddress" size="40" style="border:1px solid gray;padding:5px;"/>
+    <input type="button" id="btnSubmit" value="Submit" style="padding:5px;" />
+    <div style="padding:10px;margin:10px;" id="emailResponse"></div>
+</div>
+</body>
