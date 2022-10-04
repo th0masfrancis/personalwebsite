@@ -4,6 +4,9 @@
     $('#btnSubmit').disabled = true;
     var val = $('#emailAddress')[0].value;
     $('#emailResponse').html('<img src="images/ajax-loader.gif" border="0" />').css('backgroundColor', 'ffffd0');
+
+    /* Add  action php here */
+
     $.getJSON('notify.php',{email: val}, function(data){
         if (!data.result) {
             $('#emailResponse').html(data.message).css('backgroundColor','ff9999').effect('highlight', {color: '#ffff99'}, 1000);
